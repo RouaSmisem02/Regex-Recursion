@@ -7,17 +7,17 @@ characters (no numbers and symbols) and it should end with capital A else return
 
 function capitalA(s){
     // Add your logic.
-    let regexCh1 = /^[a-zA-Z]/
-    let regexCh2 = /A$/
+    let regexCh1 = /[a-zA-Z]*A$/
+   // let regexCh2 = /A$/
     let result1 = regexCh1.test(s)
-    var lastA = s.charAt(s.length - 1); //to get the last char at s
+   // var lastA = s.charAt(s.length - 1); //to get the last char at s
 
     if (result1){
-        if (lastA == regexCh2) {
-            return true;
-        }
+        return true;
+    }else{
+        return false;
     }
-    return false;
+    
 }
 
 
@@ -25,18 +25,16 @@ function capitalA(s){
 which end with io (example@example.io) */
 
 function ioEmail(email){
-    // Add your logic.
-    let regexStartEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
-    let regexEndEmail = /.io$/
-
-    let resultEmail = regexStartEmail.test(email)
-    let resultEmai2 = regexEndEmail.test(email)
-    if (resultEmail && resultEmai2) {
+    const emailRegex = /^[a-zA-Z0-9_+-]+@[a-zA-Z0-9.-]+\.[i][o]$/;
+    // Test the email string against the regex pattern
+    let r = emailRegex.test(email);
+    
+    if (r){
         return true;
-    } else {
+    }else{
         return false;
     }
-    return;
+   
 }
 
 /* You have a text that contain image names with their extention you need to write a function to 
